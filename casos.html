@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Estudio | Pelados Labs</title>
+    <meta name="description" content="Casos de estudio reales con desafíos, soluciones y resultados.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Pelados</span>Labs
+            </a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="about.html" class="nav-link">Sobre Nosotros</a>
+                <a href="servicios.html" class="nav-link">Servicios</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+                <div class="nav-cta">
+                    <a href="javascript:void(0)" onclick="openCalendly()" class="btn btn-primary btn-sm">
+                        <i class="fa-regular fa-calendar"></i> Agendar
+                    </a>
+                </div>
+            </div>
+            <div class="nav-toggle"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-content" data-aos="fade-up">
+            <div class="hero-badge">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span>Case Studies</span>
+            </div>
+            <h1 class="hero-title">Casos de <span>Estudio</span></h1>
+            <p class="hero-subtitle">Proyectos reales con desafíos, soluciones y resultados</p>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="cases">
+        <div class="container">
+            <div class="grid" style="gap: var(--space-2xl);">
+
+                <!-- Caso 1 -->
+                <div class="card case-card" data-aos="fade-up">
+                    <div class="case-header">
+                        <div class="case-image">
+                            <i class="fa-solid fa-bug"></i>
+                        </div>
+                        <div>
+                            <h3 class="case-title">KuchaBicho - Control de Plagas</h3>
+                            <div class="project-tags" style="margin-top: var(--space-sm);">
+                                <span class="tag">Web</span>
+                                <span class="tag">Formularios</span>
+                                <span class="tag">Precios Dinámicos</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-sections">
+                        <div class="case-section">
+                            <h4><i class="fa-solid fa-circle-exclamation"></i> Desafío</h4>
+                            <p>
+                                El cliente necesitaba una web profesional que mostrara sus servicios de control de
+                                plagas con una tabla de precios interactiva y formularios de contacto integrados.
+                            </p>
+                        </div>
+                        <div class="case-section">
+                            <h4><i class="fa-solid fa-lightbulb"></i> Solución</h4>
+                            <p>
+                                Desarrollé una web moderna con diseño oscuro, tabla de precios dinámica con filtros,
+                                integración de WhatsApp y formularios con FormSubmit.
+                            </p>
+                        </div>
+                        <div class="case-section">
+                            <h4><i class="fa-solid fa-trophy"></i> Resultado</h4>
+                            <p>
+                                Web funcional entregada en 2 semanas. El cliente reportó aumento en consultas y mayor
+                                profesionalismo percibido por sus clientes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caso 2 -->
+                <div class="card case-card" data-aos="fade-up">
+                    <div class="case-header">
+                        <div class="case-image">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <div>
+                            <h3 class="case-title">VisionCraft - Portfolio Creativo</h3>
+                            <div class="project-tags" style="margin-top: var(--space-sm);">
+                                <span class="tag">Portfolio</span>
+                                <span class="tag">Animaciones</span>
+                                <span class="tag">UI/UX</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-sections">
+                        <div class="case-section">
+                            <h4><i class="fa-solid fa-circle-exclamation"></i> Desafío</h4>
+                            <p>
+                                Crear un portfolio visual que destacara entre la competencia con animaciones suaves y
+                                diseño premium.
+                            </p>
+                        </div>
+                        <div class="case-section">
+                            <h4><i class="fa-solid fa-lightbulb"></i> Solución</h4>
+                            <p>
+                                Implementé AOS para animaciones, glassmorphism y una paleta de colores vibrante con un
+                                layout limpio y profesional.
+                            </p>
+                        </div>
+                        <div class="case-section">
+                            <h4><i class="fa-solid fa-trophy"></i> Resultado</h4>
+                            <p>
+                                Portfolio moderno con excelente rendimiento y 100% responsive. Diseño que transmite
+                                profesionalismo y creatividad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Casos placeholder -->
+                <div class="card case-card" data-aos="fade-up">
+                    <div class="case-header">
+                        <div class="case-image">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h3 class="case-title">
+                                <!-- EDITABLE -->
+                                Título del Caso
+                            </h3>
+                            <div class="project-tags" style="margin-top: var(--space-sm);">
+                                <span class="tag">Categoría</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-sections">
+                        <div class="case-section">
+                            <h4><i class="fa-solid fa-circle-exclamation"></i> Desafío</h4>
+                            <p>Descripción del problema o desafío que enfrentaba el cliente.</p>
+                        </div>
+                        <div class="case-section">
+                            <h4><i class="fa-solid fa-lightbulb"></i> Solución</h4>
+                            <p>¿Qué solución implementaste? ¿Qué tecnologías usaste?</p>
+                        </div>
+                        <div class="case-section">
+                            <h4><i class="fa-solid fa-trophy"></i> Resultado</h4>
+                            <p>¿Cuáles fueron los resultados? ¿Métricas de mejora?</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+        <div class="container">
+            <div class="card card-glass text-center" style="padding: var(--space-3xl);" data-aos="fade-up">
+                <h2 class="section-title">¿Querés que tu proyecto sea el próximo caso de éxito?</h2>
+                <p class="section-subtitle" style="margin-bottom: var(--space-2xl);">Hablemos sobre cómo puedo ayudarte.
+                </p>
+                <div class="btn-group" style="justify-content: center;">
+                    <a href="contacto.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-envelope"></i>
+                        Contactar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-brand-name"><i class="fa-solid fa-bolt"></i> <span>Pelados</span>Labs</div>
+                    <p class="footer-brand-text">Desarrollo web profesional orientado a resultados.</p>
+                    <div class="footer-social" style="margin-top: var(--space-lg);">
+                        <a href="#" class="footer-social-link"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://wa.me/5491130489378" class="footer-social-link"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Navegación</h4>
+                    <div class="footer-links">
+                        <a href="index.html" class="footer-link">Inicio</a>
+                        <a href="about.html" class="footer-link">Sobre Nosotros</a>
+                        <a href="servicios.html" class="footer-link">Servicios</a>
+                        <a href="contacto.html" class="footer-link">Contacto</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Recursos</h4>
+                    <div class="footer-links">
+                        <a href="faq.html" class="footer-link">FAQ</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="casos.html" class="footer-link">Casos de Estudio</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contacto</h4>
+                    <div class="footer-links">
+                        <a href="mailto:peladoslabs@gmail.com" class="footer-link"><i
+                                class="fa-regular fa-envelope"></i>
+                            peladoslabs@gmail.com</a>
+                        <a href="https://wa.me/5491130489378" class="footer-link"><i class="fa-brands fa-whatsapp"></i>
+                            +54 9 11 3048 9378</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2025 Pelados Labs. Todos los derechos reservados.</p>
+                <div class="footer-legal"><a href="#">Privacidad</a><a href="#">Términos</a></div>
+            </div>
+        </div>
+    </footer>
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar modo oscuro/claro">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

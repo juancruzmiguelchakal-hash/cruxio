@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos | VertexVisual</title>
+    <meta name="description" content="Portfolio de proyectos: webs, edición de fotos, videos, logos y diseño gráfico.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fa-solid fa-code"></i>
+                <span>Vertex</span>Visual
+            </a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="about.html" class="nav-link">Sobre Nosotros</a>
+                <a href="servicios.html" class="nav-link">Servicios</a>
+                <a href="precios.html" class="nav-link">Precios</a>
+                <a href="proyectos.html" class="nav-link active">Proyectos</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+                <div class="nav-cta">
+                    <a href="javascript:void(0)" onclick="openCalendly()" class="btn btn-primary btn-sm">
+                        <i class="fa-regular fa-calendar"></i> Agendar
+                    </a>
+                </div>
+            </div>
+            <div class="nav-toggle"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-content" data-aos="fade-up">
+            <div class="hero-badge">
+                <i class="fa-solid fa-folder-open"></i>
+                <span>Portfolio</span>
+            </div>
+            <h1 class="hero-title">Mis <span>Proyectos</span></h1>
+            <p class="hero-subtitle">Webs, diseño, edición y más</p>
+        </div>
+    </section>
+
+    <!-- Filter -->
+    <section id="filter" style="padding-top: 50px;">
+        <div class="container">
+            <div class="btn-group" style="justify-content: center; flex-wrap: wrap;" data-aos="fade-up">
+                <button class="btn btn-primary btn-sm" onclick="filterProjects('all')">Todos</button>
+                <button class="btn btn-outline btn-sm" onclick="filterProjects('web')">Proyectos Web</button>
+                <button class="btn btn-outline btn-sm" onclick="filterProjects('foto')">Edición Fotos</button>
+                <button class="btn btn-outline btn-sm" onclick="filterProjects('video')">Edición Videos</button>
+                <button class="btn btn-outline btn-sm" onclick="filterProjects('redes')">Redes Sociales</button>
+                <button class="btn btn-outline btn-sm" onclick="filterProjects('logo')">Logos y Diseño</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <div class="grid grid-3">
+
+                <!-- VertexVisual (Agency) -->
+                <div class="card project-card" data-category="web" data-aos="fade-up">
+                    <div class="project-image">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Agency</span>
+                            <span class="tag">Web</span>
+                            <span class="tag">Branding</span>
+                        </div>
+                        <h3 class="card-title">VertexVisual Agency</h3>
+                        <p class="card-text">Nuestra propia plataforma. Diseño moderno, colores premium y optimización
+                            total.</p>
+                        <a href="index.html" class="btn btn-outline btn-sm" style="width: 100%;">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Sitio
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROYECTOS WEB -->
+
+                <!-- VisionCraft -->
+                <div class="card project-card" data-category="web" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <!-- EDITABLE: Captura del proyecto -->
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Web</span>
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3 class="card-title">VisionCraft</h3>
+                        <p class="card-text">Portfolio visual con animaciones suaves y diseño premium orientado a
+                            servicios creativos.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Proyecto
+                        </a>
+                    </div>
+                </div>
+
+                <!-- KuchaBicho -->
+                <div class="card project-card" data-category="web" data-aos="fade-up" data-aos-delay="150">
+                    <div class="project-image">
+                        <i class="fa-solid fa-bug"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Web</span>
+                            <span class="tag">Formularios</span>
+                            <span class="tag">Precios</span>
+                        </div>
+                        <h3 class="card-title">KuchaBicho</h3>
+                        <p class="card-text">Web para control de plagas con tabla de precios dinámica y formularios
+                            integrados.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Proyecto
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Placeholder Web -->
+                <div class="card project-card" data-category="web" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Web</span>
+                            <span class="tag">Coming Soon</span>
+                        </div>
+                        <h3 class="card-title">
+                            <!-- EDITABLE -->
+                            Próximo Proyecto Web
+                        </h3>
+                        <p class="card-text">Espacio reservado para futuros proyectos web.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Más
+                        </a>
+                    </div>
+                </div>
+
+                <!-- EDICIÓN FOTOS -->
+
+                <div class="card project-card" data-category="foto" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <i class="fa-solid fa-image"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Fotografía</span>
+                            <span class="tag">Retoque</span>
+                        </div>
+                        <h3 class="card-title">
+                            <!-- EDITABLE -->
+                            Edición de Producto
+                        </h3>
+                        <p class="card-text">Retoque profesional y optimización de imágenes para catálogos.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">Ver galería</a>
+                    </div>
+                </div>
+
+                <div class="card project-card" data-category="foto" data-aos="fade-up" data-aos-delay="150">
+                    <div class="project-image">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Fotografía</span>
+                            <span class="tag">Antes/Después</span>
+                        </div>
+                        <h3 class="card-title">Corrección de Color</h3>
+                        <p class="card-text">Mejoras de iluminación y color para fotografías profesionales.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">Ver galería</a>
+                    </div>
+                </div>
+
+                <!-- EDICIÓN VIDEOS -->
+
+                <div class="card project-card" data-category="video" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Video</span>
+                            <span class="tag">Redes</span>
+                        </div>
+                        <h3 class="card-title">Reels Promocionales</h3>
+                        <p class="card-text">Edición de videos cortos para Instagram y TikTok.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">Ver ejemplos</a>
+                    </div>
+                </div>
+
+                <div class="card project-card" data-category="video" data-aos="fade-up" data-aos-delay="150">
+                    <div class="project-image">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Video</span>
+                            <span class="tag">YouTube</span>
+                        </div>
+                        <h3 class="card-title">Videos para YouTube</h3>
+                        <p class="card-text">Edición completa con intro, transiciones y efectos.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">Ver ejemplos</a>
+                    </div>
+                </div>
+
+                <!-- REDES SOCIALES -->
+
+                <div class="card project-card" data-category="redes" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Redes</span>
+                            <span class="tag">Instagram</span>
+                        </div>
+                        <h3 class="card-title">Feed Instagram</h3>
+                        <p class="card-text">Diseño de publicaciones y stories para perfiles de negocios.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">Ver ejemplos</a>
+                    </div>
+                </div>
+
+                <div class="card project-card" data-category="redes" data-aos="fade-up" data-aos-delay="150">
+                    <div class="project-image">
+                        <i class="fa-solid fa-share-nodes"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Redes</span>
+                            <span class="tag">Carruseles</span>
+                        </div>
+                        <h3 class="card-title">Carruseles Informativos</h3>
+                        <p class="card-text">Posts deslizables con contenido de valor.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">Ver ejemplos</a>
+                    </div>
+                </div>
+
+                <!-- LOGOS Y DISEÑO -->
+
+                <div class="card project-card" data-category="logo" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Logo</span>
+                            <span class="tag">Branding</span>
+                        </div>
+                        <h3 class="card-title">Diseño de Logos</h3>
+                        <p class="card-text">Identidad visual para marcas y emprendimientos.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">Ver galería</a>
+                    </div>
+                </div>
+
+                <div class="card project-card" data-category="logo" data-aos="fade-up" data-aos-delay="150">
+                    <div class="project-image">
+                        <i class="fa-solid fa-newspaper"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Diseño</span>
+                            <span class="tag">Flyers</span>
+                        </div>
+                        <h3 class="card-title">Flyers y Banners</h3>
+                        <p class="card-text">Piezas gráficas para promociones y eventos.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">Ver galería</a>
+                    </div>
+                </div>
+
+                <div class="card project-card" data-category="logo" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Diseño</span>
+                            <span class="tag">Tarjetas</span>
+                        </div>
+                        <h3 class="card-title">Tarjetas de Presentación</h3>
+                        <p class="card-text">Diseño profesional para networking.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">Ver galería</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+        <div class="container">
+            <div class="card card-glass text-center" style="padding: var(--space-3xl);" data-aos="fade-up">
+                <h2 class="section-title">¿Querés ser mi próximo proyecto?</h2>
+                <p class="section-subtitle" style="margin-bottom: var(--space-2xl);">
+                    Contame tu idea y la hacemos realidad.
+                </p>
+                <div class="btn-group" style="justify-content: center;">
+                    <a href="https://wa.me/5491130489378" target="_blank" class="btn btn-whatsapp btn-lg">
+                        <i class="fa-brands fa-whatsapp"></i> Hablemos
+                    </a>
+                    <a href="contacto.html" class="btn btn-outline btn-lg">
+                        <i class="fa-solid fa-envelope"></i> Contacto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-brand-name"><i class="fa-solid fa-code"></i> <span>Vertex</span>Visual</div>
+                    <p class="footer-brand-text">Desarrollo web profesional orientado a resultados.</p>
+                    <div class="footer-social" style="margin-top: var(--space-lg);">
+                        <a href="#" target="_blank" class="footer-social-link"><i class="fa-brands fa-github"></i></a>
+                        <!--<a href="#" target="_blank" class="footer-social-link"><i
+                                class="fa-brands fa-linkedin-in"></i></a>-->
+                        <!--<a href="#" target="_blank" class="footer-social-link"><i
+                                class="fa-brands fa-instagram"></i></a>-->
+                        <a href="https://wa.me/5491130489378" target="_blank" class="footer-social-link"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Navegación</h4>
+                    <div class="footer-links">
+                        <a href="index.html" class="footer-link">Inicio</a>
+                        <a href="about.html" class="footer-link">Sobre Nosotros</a>
+                        <a href="servicios.html" class="footer-link">Servicios</a>
+                        <a href="precios.html" class="footer-link">Precios</a>
+                        <a href="proyectos.html" class="footer-link">Proyectos</a>
+                        <a href="contacto.html" class="footer-link">Contacto</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Recursos</h4>
+                    <div class="footer-links">
+                        <a href="faq.html" class="footer-link">Preguntas Frecuentes</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="testimonios.html" class="footer-link">Testimonios</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contacto</h4>
+                    <div class="footer-links">
+                        <a href="mailto:VertexVisual@gmail.com" class="footer-link"><i
+                                class="fa-regular fa-envelope"></i>
+                            VertexVisual@gmail.com</a>
+                        <a href="https://wa.me/5491130489378" class="footer-link"><i class="fa-brands fa-whatsapp"></i>
+                            +54 9 11 3048 9378</a>
+                        <span class="footer-link" style="cursor: default;"><i class="fa-solid fa-globe"></i>
+                            Argentina
+                            (GMT-3)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2025 VertexVisual. Todos los derechos reservados.</p>
+                <div class="footer-legal"><a href="#">Privacidad</a><a href="#">Términos</a></div>
+            </div>
+        </div>
+    </footer>
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar modo oscuro/claro">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script src="script.js"></script>
+
+    <script>
+        function filterProjects(category) {
+            const projects = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('#filter .btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('btn-primary');
+                btn.classList.add('btn-outline');
+            });
+            event.target.classList.remove('btn-outline');
+            event.target.classList.add('btn-primary');
+
+            projects.forEach(project => {
+                if (category === 'all' || project.dataset.category === category) {
+                    project.style.display = 'block';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

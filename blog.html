@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Pelados Labs - Desarrollo Web</title>
+    <meta name="description" content="Blog técnico con casos, aprendizajes, procesos y consejos para emprendedores.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Pelados</span>Labs
+            </a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="about.html" class="nav-link">Sobre Nosotros</a>
+                <a href="servicios.html" class="nav-link">Servicios</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+                <div class="nav-cta">
+                    <a href="javascript:void(0)" onclick="openCalendly()" class="btn btn-primary btn-sm">
+                        <i class="fa-regular fa-calendar"></i> Agendar
+                    </a>
+                </div>
+            </div>
+            <div class="nav-toggle"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-content" data-aos="fade-up">
+            <div class="hero-badge">
+                <i class="fa-solid fa-pen-nib"></i>
+                <span>Contenido</span>
+            </div>
+            <h1 class="hero-title"><span>Blog</span></h1>
+            <p class="hero-subtitle">Casos, aprendizajes, procesos y consejos</p>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <section id="categories" style="padding-top: 0;">
+        <div class="container">
+            <div class="btn-group" style="justify-content: center; flex-wrap: wrap;" data-aos="fade-up">
+                <button class="btn btn-primary btn-sm" onclick="filterPosts('all')">Todos</button>
+                <button class="btn btn-outline btn-sm" onclick="filterPosts('casos')">Casos y Aprendizajes</button>
+                <button class="btn btn-outline btn-sm" onclick="filterPosts('procesos')">Procesos</button>
+                <button class="btn btn-outline btn-sm" onclick="filterPosts('tecnico')">Notas Técnicas</button>
+                <button class="btn btn-outline btn-sm" onclick="filterPosts('consejos')">Consejos</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <section id="blog-posts">
+        <div class="container">
+            <div class="grid grid-3">
+
+                <!-- Post 1: Caso -->
+                <article class="card note-card" data-category="casos" data-aos="fade-up" data-aos-delay="100">
+                    <div class="note-image">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <div class="note-content">
+                        <div class="project-tags" style="margin-bottom: var(--space-sm);">
+                            <span class="tag">Caso de Estudio</span>
+                        </div>
+                        <p class="note-date">
+                            <i class="fa-regular fa-calendar"></i>
+                            <!-- EDITABLE: Fecha -->
+                            Diciembre 2025
+                        </p>
+                        <h3 class="note-title">
+                            <!-- EDITABLE: Título -->
+                            Cómo desarrollé VisionCraft en 2 semanas
+                        </h3>
+                        <p class="note-excerpt">
+                            <!-- EDITABLE: Descripción -->
+                            El proceso completo detrás de este proyecto: desafíos, soluciones y lecciones aprendidas.
+                        </p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">
+                            Leer más <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post 2: Proceso -->
+                <article class="card note-card" data-category="procesos" data-aos="fade-up" data-aos-delay="150">
+                    <div class="note-image">
+                        <i class="fa-solid fa-route"></i>
+                    </div>
+                    <div class="note-content">
+                        <div class="project-tags" style="margin-bottom: var(--space-sm);">
+                            <span class="tag">Proceso</span>
+                        </div>
+                        <p class="note-date">
+                            <i class="fa-regular fa-calendar"></i> Noviembre 2025
+                        </p>
+                        <h3 class="note-title">Mi flujo de trabajo para proyectos web</h3>
+                        <p class="note-excerpt">Cómo organizo cada proyecto desde la primera reunión hasta la entrega
+                            final.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">
+                            Leer más <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post 3: Técnico -->
+                <article class="card note-card" data-category="tecnico" data-aos="fade-up" data-aos-delay="200">
+                    <div class="note-image">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <div class="note-content">
+                        <div class="project-tags" style="margin-bottom: var(--space-sm);">
+                            <span class="tag">Nota Técnica</span>
+                        </div>
+                        <p class="note-date">
+                            <i class="fa-regular fa-calendar"></i> Noviembre 2025
+                        </p>
+                        <h3 class="note-title">Optimización de velocidad: 5 tips clave</h3>
+                        <p class="note-excerpt">Técnicas simples para hacer que tu sitio cargue más rápido.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">
+                            Leer más <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post 4: Consejos -->
+                <article class="card note-card" data-category="consejos" data-aos="fade-up" data-aos-delay="250">
+                    <div class="note-image">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <div class="note-content">
+                        <div class="project-tags" style="margin-bottom: var(--space-sm);">
+                            <span class="tag">Consejos</span>
+                        </div>
+                        <p class="note-date">
+                            <i class="fa-regular fa-calendar"></i> Octubre 2025
+                        </p>
+                        <h3 class="note-title">¿Tu negocio necesita una web? 5 señales claras</h3>
+                        <p class="note-excerpt">Cuándo es el momento indicado para invertir en presencia digital.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">
+                            Leer más <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post 5: Caso -->
+                <article class="card note-card" data-category="casos" data-aos="fade-up" data-aos-delay="300">
+                    <div class="note-image">
+                        <i class="fa-solid fa-bug"></i>
+                    </div>
+                    <div class="note-content">
+                        <div class="project-tags" style="margin-bottom: var(--space-sm);">
+                            <span class="tag">Caso de Estudio</span>
+                        </div>
+                        <p class="note-date">
+                            <i class="fa-regular fa-calendar"></i> Octubre 2025
+                        </p>
+                        <h3 class="note-title">KuchaBicho: web completa para control de plagas</h3>
+                        <p class="note-excerpt">Cómo creé una web con tabla de precios dinámica y formularios
+                            integrados.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">
+                            Leer más <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Post 6: Consejos -->
+                <article class="card note-card" data-category="consejos" data-aos="fade-up" data-aos-delay="350">
+                    <div class="note-image">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div class="note-content">
+                        <div class="project-tags" style="margin-bottom: var(--space-sm);">
+                            <span class="tag">Consejos</span>
+                        </div>
+                        <p class="note-date">
+                            <i class="fa-regular fa-calendar"></i> Septiembre 2025
+                        </p>
+                        <h3 class="note-title">Cómo preparar el contenido para tu web</h3>
+                        <p class="note-excerpt">Una guía práctica para emprendedores que van a crear su sitio.</p>
+                        <a href="#" class="btn btn-outline btn-sm" style="width: 100%;">
+                            Leer más <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Próximamente -->
+            <div class="text-center" style="margin-top: var(--space-3xl);" data-aos="fade-up">
+                <p style="color: var(--text-muted);">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    Próximamente más artículos...
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-brand-name"><i class="fa-solid fa-bolt"></i> <span>Pelados</span>Labs</div>
+                    <p class="footer-brand-text">Desarrollo web profesional orientado a resultados.</p>
+                    <div class="footer-social" style="margin-top: var(--space-lg);">
+                        <a href="#" class="footer-social-link"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://wa.me/5491130489378" class="footer-social-link"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Navegación</h4>
+                    <div class="footer-links">
+                        <a href="index.html" class="footer-link">Inicio</a>
+                        <a href="about.html" class="footer-link">Sobre Nosotros</a>
+                        <a href="servicios.html" class="footer-link">Servicios</a>
+                        <a href="contacto.html" class="footer-link">Contacto</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Recursos</h4>
+                    <div class="footer-links">
+                        <a href="faq.html" class="footer-link">Preguntas Frecuentes</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="testimonios.html" class="footer-link">Testimonios</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contacto</h4>
+                    <div class="footer-links">
+                        <a href="mailto:peladoslabs@gmail.com" class="footer-link"><i
+                                class="fa-regular fa-envelope"></i>
+                            peladoslabs@gmail.com</a>
+                        <a href="https://wa.me/5491130489378" class="footer-link"><i class="fa-brands fa-whatsapp"></i>
+                            +54 9 11 3048 9378</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2025 Pelados Labs. Todos los derechos reservados.</p>
+                <div class="footer-legal"><a href="#">Privacidad</a><a href="#">Términos</a></div>
+            </div>
+        </div>
+    </footer>
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar modo oscuro/claro">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script src="script.js"></script>
+
+    <script>
+        function filterPosts(category) {
+            const posts = document.querySelectorAll('.note-card');
+            const buttons = document.querySelectorAll('#categories .btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('btn-primary');
+                btn.classList.add('btn-outline');
+            });
+            event.target.classList.remove('btn-outline');
+            event.target.classList.add('btn-primary');
+
+            posts.forEach(post => {
+                if (category === 'all' || post.dataset.category === category) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

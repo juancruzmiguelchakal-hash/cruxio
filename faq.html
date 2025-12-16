@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes | Pelados Labs</title>
+    <meta name="description" content="Respuestas a las preguntas más comunes sobre desarrollo web y servicios.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Pelados</span>Labs
+            </a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="about.html" class="nav-link">Sobre Nosotros</a>
+                <a href="servicios.html" class="nav-link">Servicios</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+                <div class="nav-cta">
+                    <a href="javascript:void(0)" onclick="openCalendly()" class="btn btn-primary btn-sm">
+                        <i class="fa-regular fa-calendar"></i> Agendar
+                    </a>
+                </div>
+            </div>
+            <div class="nav-toggle"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-content" data-aos="fade-up">
+            <div class="hero-badge">
+                <i class="fa-solid fa-circle-question"></i>
+                <span>FAQ</span>
+            </div>
+            <h1 class="hero-title">Preguntas <span>Frecuentes</span></h1>
+            <p class="hero-subtitle">Respuestas a las dudas más comunes</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container container-sm">
+            <div class="accordion" data-aos="fade-up">
+
+                <!-- Pregunta 1 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">¿Cuánto tarda un proyecto web?</h3>
+                        <i class="fa-solid fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Depende del tipo de proyecto:
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li><strong>Landing Page:</strong> 1-2 semanas</li>
+                                <li><strong>Sitio Multipágina:</strong> 2-4 semanas</li>
+                                <li><strong>E-commerce:</strong> 4-8 semanas</li>
+                                <li><strong>Sistema a medida:</strong> 6-12 semanas</li>
+                            </ul>
+                            Siempre te doy un estimado antes de empezar.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 2 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">¿Cuánto cuesta una web?</h3>
+                        <i class="fa-solid fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Los precios varían según el tipo y complejidad. Por ejemplo:
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>Landing Page: $150.000 – $250.000</li>
+                                <li>Sitio Multipágina: $200.000 – $450.000</li>
+                                <li>Tienda Online: $350.000 – $900.000+</li>
+                            </ul>
+                            Usá la <a href="precios.html" style="color: var(--accent);">calculadora de precios</a> para
+                            un estimado personalizado en nuestra página de <a href="servicios.html#calculator" style="color: var(--accent);">Servicios</a>.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 3 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">¿Qué incluye el mantenimiento mensual?</h3>
+                        <i class="fa-solid fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            El plan de mantenimiento incluye:
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>Actualizaciones de seguridad</li>
+                                <li>Backups periódicos</li>
+                                <li>Cambios menores de contenido</li>
+                                <li>Monitoreo de funcionamiento</li>
+                                <li>Soporte prioritario por WhatsApp</li>
+                            </ul>
+                            El precio varía entre $15.000 y $100.000/mes según las necesidades.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 4 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">¿Puedo pedir cambios después de la entrega?</h3>
+                        <i class="fa-solid fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            ¡Sí! Durante el desarrollo tenés revisiones incluidas para ajustar lo que necesites. Después
+                            de la entrega, los cambios menores se pueden hacer con el plan de mantenimiento o como
+                            servicio puntual.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 5 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">¿Qué tecnologías usás?</h3>
+                        <i class="fa-solid fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Trabajo con HTML5, CSS3 y JavaScript para sitios estáticos. Para proyectos más complejos uso
+                            React y Node.js. También trabajo con WordPress cuando es necesario. Elijo la tecnología
+                            según lo que tu proyecto necesite.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 6 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">¿Cómo es el proceso de trabajo?</h3>
+                        <i class="fa-solid fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Nuestro proceso tiene 8 pasos: reunión inicial, brief, propuesta, diseño, desarrollo,
+                            presentación, revisiones y entrega. Podés ver el detalle en la <a
+                                href="index.html#process" style="color: var(--accent);">página de inicio</a>.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 7 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">¿Qué es el hosting y el dominio?</h3>
+                        <i class="fa-solid fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <strong>Dominio:</strong> Es la dirección de tu web (ej: tunegocio.com). Cuesta $40.000 –
+                            $60.000/año según la extensión.<br><br>
+                            <strong>Hosting:</strong> Es el servidor donde vive tu web. Cuesta $20.000/mes.
+                            Podés pagarlo mensual o anual como prefieras.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 8: Métodos de Pago -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">¿Cómo son los métodos de pago?</h3>
+                        <i class="fa-solid fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <strong>Desarrollo web (Landing, Multipágina, E-commerce):</strong> 50% al inicio y 50% al
+                            finalizar el proyecto.<br><br>
+                            <strong>Hosting y Dominio:</strong> Pago mensual, anual, o en 12 cuotas si elegís un plan de
+                            más de 1 año.<br><br>
+                            <strong>Servicios adicionales (SEO, Copywriting, etc.):</strong> Pago único al
+                            contratar.<br><br>
+                            Acepto transferencias bancarias y MercadoPago.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 9: Reuniones -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">¿Hacemos reuniones durante el proyecto?</h3>
+                        <i class="fa-solid fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Sí, tenemos una reunión inicial obligatoria y luego reuniones de avance según sea necesario.
+                            Uso Google Meet o Zoom. También mantengo comunicación constante por WhatsApp para consultas
+                            rápidas.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 10 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">¿Cuántas revisiones incluye el proyecto?</h3>
+                        <i class="fa-solid fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Generalmente incluyo 2-3 rondas de revisiones en cada etapa (diseño y desarrollo). Si
+                            necesitás más cambios significativos, podemos acordar un adicional.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 11 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">¿Qué incluye cada paquete de servicio?</h3>
+                        <i class="fa-solid fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Cada servicio incluye:
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>Diseño personalizado y responsive</li>
+                                <li>Desarrollo con código limpio</li>
+                                <li>Optimización básica de velocidad</li>
+                                <li>Rondas de revisión incluidas</li>
+                                <li>Entrega de archivos finales</li>
+                                <li>Soporte post-entrega (30 días)</li>
+                            </ul>
+                            Los adicionales (SEO, integraciones, etc.) se cotizan aparte.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 12 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">¿Cómo trabajás con tu equipo?</h3>
+                        <i class="fa-solid fa-plus accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Tengo un equipo pequeño que me ayuda con tareas específicas: diseño gráfico, edición de
+                            contenido y soporte técnico. Yo soy el punto de contacto principal y superviso todo el
+                            proceso. Esto me permite entregar proyectos en tiempo y forma sin perder calidad.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+        <div class="container">
+            <div class="card card-glass text-center" style="padding: var(--space-3xl);" data-aos="fade-up">
+                <h2 class="section-title">¿Tenés otra pregunta?</h2>
+                <p class="section-subtitle" style="margin-bottom: var(--space-2xl);">
+                    Escribime y te respondo rápido.
+                </p>
+                <div class="btn-group" style="justify-content: center;">
+                    <a href="https://wa.me/5491130489378" target="_blank" class="btn btn-whatsapp btn-lg">
+                        <i class="fa-brands fa-whatsapp"></i> Hablar por WhatsApp
+                    </a>
+                    <a href="javascript:void(0)" onclick="openCalendly()" class="btn btn-outline btn-lg">
+                        <i class="fa-regular fa-calendar"></i> Agendar con Calendly
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-brand-name"><i class="fa-solid fa-bolt"></i> <span>Pelados</span>Labs</div>
+                    <p class="footer-brand-text">Desarrollo web profesional orientado a resultados.</p>
+                    <div class="footer-social" style="margin-top: var(--space-lg);">
+                        <a href="#" class="footer-social-link"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://wa.me/5491130489378" class="footer-social-link"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Navegación</h4>
+                    <div class="footer-links">
+                        <a href="index.html" class="footer-link">Inicio</a>
+                        <a href="about.html" class="footer-link">Sobre Nosotros</a>
+                        <a href="servicios.html" class="footer-link">Servicios</a>
+                        <a href="contacto.html" class="footer-link">Contacto</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Recursos</h4>
+                    <div class="footer-links">
+                        <a href="faq.html" class="footer-link">FAQ</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="testimonios.html" class="footer-link">Testimonios</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contacto</h4>
+                    <div class="footer-links">
+                        <a href="mailto:peladoslabs@gmail.com" class="footer-link"><i
+                                class="fa-regular fa-envelope"></i>
+                            peladoslabs@gmail.com</a>
+                        <a href="https://wa.me/5491130489378" class="footer-link"><i class="fa-brands fa-whatsapp"></i>
+                            +54 9 11 3048 9378</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2025 Pelados Labs. Todos los derechos reservados.</p>
+                <div class="footer-legal"><a href="#">Privacidad</a><a href="#">Términos</a></div>
+            </div>
+        </div>
+    </footer>
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar modo oscuro/claro">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
