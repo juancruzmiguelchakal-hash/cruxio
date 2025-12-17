@@ -2796,21 +2796,28 @@ body.dark-mode .theme-toggle-btn i {
 }
 
 /* ============================================
-   CUSTOM STYLES FOR SERVICE PREVIEW CARDS
+   CUSTOM STYLES FOR SERVICE PREVIEW CARDS (MODIFICADO)
    ============================================ */
 
 .service-preview-card {
     padding-left: 0;
     padding-right: 0;
+    /* Añadimos flexbox para un mejor control del contenido */
+    display: flex;
+    flex-direction: column;
 }
 
 .service-preview-card .card-icon {
-    width: calc(100% - 30px); /* 15px de margen a cada lado */
-    height: 125px; /* 85px + 40px extra */
+    width: calc(100% - 50px);
+    /* CAMBIO: Aumentamos la altura del fondo del ícono en 15px */
+    height: 115px; 
+    /* CAMBIO: Aumentamos la altura del fondo del ícono en 20px más */
+    height: 135px; 
     border-radius: var(--radius-lg);
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: var(--space-xl);
+    /* CAMBIO: Reducimos el margen inferior del ícono */
+    margin-bottom: var(--space-lg); 
 }
 
 .service-preview-card .card-icon i {
@@ -2818,7 +2825,30 @@ body.dark-mode .theme-toggle-btn i {
 }
 
 .service-preview-content {
-    padding: 0 var(--space-xl) var(--space-xl);
+    /* CAMBIO: Ajustamos el padding para que el botón tenga 15px de margen a los costados */
+    padding: 0 15px var(--space-lg);
+    /* CAMBIO: Ajustamos el padding para que el botón tenga 15px de margen a los costados y 20px abajo */
+    padding: 0 15px 20px;
+    /* Añadimos flexbox para alinear el botón al final */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permite que este contenedor crezca y ocupe el espacio */
+}
+
+/* NUEVA REGLA: Hacemos que el texto ocupe el espacio disponible */
+.service-preview-content .card-text {
+    flex-grow: 1;
+    /* CAMBIO: Reducimos el margen inferior para acercar el botón */
+    margin-bottom: var(--space-lg);
+}
+
+/* NUEVA REGLA: Ajustamos el botón para que no sea tan ancho */
+.service-preview-content .btn {
+    /* CAMBIO: Hacemos que el botón ocupe todo el ancho disponible */
+    width: 100%;
+    /* CAMBIO: Reducimos el padding vertical para hacer el botón más bajo */
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
 }
 
 /* Anula la animación de inclinación y crecimiento en las tarjetas de servicio */
