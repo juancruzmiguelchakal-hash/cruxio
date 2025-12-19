@@ -106,11 +106,7 @@ function initAccordions() {
 function initCalculator() {
     const calculatorBox = document.querySelector('.calculator-box');
     if (!calculatorBox) return;
-
-    // --- STATE ---
-    let selectedService = { name: '', minPrice: 0, maxPrice: 0, type: '', category: 'web' };
-    let currentCategory = 'web';
-
+ 
     // --- ELEMENTS ---
     const categoryBtns = calculatorBox.querySelectorAll('.category-btn');
     const serviceOptions = calculatorBox.querySelectorAll('.calc-option');
@@ -123,7 +119,7 @@ function initCalculator() {
     const hostingRow = document.getElementById('hostingRow'); // Puede ser null
     const hostingPlanSelect = document.getElementById('hostingPlan');
     const domainPlanSelect = document.getElementById('domainPlan');
-    const contractDurationSelect = document.getElementById('contractDuration');
+    const contractDurationSelect = document.getElementById('contractDuration'); 
     const extraCheckboxes = document.querySelectorAll('.checkbox-item input'); // Puede ser null
 
     const complexityInfo = {
@@ -132,6 +128,10 @@ function initCalculator() {
         "avanzado": "Solución Premium, diseño único, avanzado. (Precio Máximo)"
     };
 
+    // --- STATE (moved to be accessible) ---
+    window.calculatorState = {
+        selectedService: { name: '', minPrice: 0, maxPrice: 0, type: '', category: 'web' }
+    };
     // --- FUNCTIONS ---
     function selectCategory(cat, btn) {
         const isAlreadySelected = btn.classList.contains('selected');
@@ -142,13 +142,12 @@ function initCalculator() {
 
         if (isAlreadySelected) {
             // Si ya estaba seleccionado, lo cerramos y reseteamos
-            currentCategory = '';
-            selectedService = { name: '', minPrice: 0, maxPrice: 0, type: '', category: '' };
+            window.calculatorState.selectedService.category = '';
+            window.calculatorState.selectedService = { name: '', minPrice: 0, maxPrice: 0, type: '', category: '' };
             serviceOptions.forEach(el => el.classList.remove('selected'));
             updateTotal();
         } else {
             // Si no estaba seleccionado, lo abrimos
-            currentCategory = cat;
 
             // Visual update
             btn.classList.add('selected');
@@ -164,7 +163,7 @@ function initCalculator() {
                     if (domainPlanSelect) domainPlanSelect.value = 0;
                 }
             }
-            selectedService = { name: '', minPrice: 0, maxPrice: 0, type: '', category: cat };
+            window.calculatorState.selectedService = { name: '', minPrice: 0, maxPrice: 0, type: '', category: cat };
             serviceOptions.forEach(el => el.classList.remove('selected'));
             updateTotal();
         }
@@ -178,18 +177,18 @@ function initCalculator() {
 
         if (isAlreadySelected) {
             // Si ya estaba seleccionado, lo deseleccionamos y reseteamos
-            selectedService = { name: '', minPrice: 0, maxPrice: 0, type: '', category: currentCategory };
+            window.calculatorState.selectedService = { name: '', minPrice: 0, maxPrice: 0, type: '', category: window.calculatorState.selectedService.category };
             if (sectionsRow) sectionsRow.style.display = 'none';
             if (extraSectionsInput) extraSectionsInput.value = 0;
         } else {
             // Si no estaba seleccionado, lo seleccionamos
             element.classList.add('selected');
-            selectedService = {
+            window.calculatorState.selectedService = {
                 name: element.querySelector('.calc-option-title').innerText,
                 minPrice: arguments[2], // minPrice
                 maxPrice: arguments[3], // maxPrice
                 type: type,
-                category: currentCategory
+                category: window.calculatorState.selectedService.category
             };
             if (sectionsRow) sectionsRow.style.display = (type === 'web_multi') ? 'block' : 'none';
             if (extraSectionsInput && type !== 'web_multi') extraSectionsInput.value = 0;
@@ -199,27 +198,27 @@ function initCalculator() {
     }
 
     function updateTotal() {
-        if (!selectedService.name) {
+        if (!window.calculatorState.selectedService.name) {
             priceValueEl.innerText = '$0';
             priceDetailEl.innerText = 'Seleccioná un servicio';
             return;
         }
 
         let total = 0;
-        let basePrice = selectedService.minPrice;
+        let basePrice = window.calculatorState.selectedService.minPrice;
 
         if (complexitySelect) {
             const complexityLevel = complexitySelect.value;
             switch (complexityLevel) {
                 case 'intermedio':
-                    basePrice = (selectedService.minPrice + selectedService.maxPrice) / 2;
+                    basePrice = (window.calculatorState.selectedService.minPrice + window.calculatorState.selectedService.maxPrice) / 2;
                     break;
                 case 'avanzado':
-                    basePrice = selectedService.maxPrice;
+                    basePrice = window.calculatorState.selectedService.maxPrice;
                     break;
                 case 'basico':
                 default:
-                    basePrice = selectedService.minPrice;
+                    basePrice = window.calculatorState.selectedService.minPrice;
             }
             if (complexityDescription) complexityDescription.innerText = complexityInfo[complexitySelect.value];
         }
@@ -259,7 +258,7 @@ function initCalculator() {
         });
 
         priceValueEl.innerText = formatPrice(total);
-        priceDetailEl.innerText = `${selectedService.name} + Extras/Complejidad`;
+        priceDetailEl.innerText = `${window.calculatorState.selectedService.name} + Extras/Complejidad`;
     }
 
     // --- INITIALIZATION ---
@@ -328,11 +327,11 @@ function initCalculator() {
 
 window.sendCalculatedQuote = function() {
     const selectedOption = document.querySelector('.calc-option.selected');
-    if (!selectedOption) return alert('Por favor, seleccioná un servicio primero.');
+    if (!selectedOption || !window.calculatorState || !window.calculatorState.selectedService.name) return alert('Por favor, seleccioná un servicio primero.');
 
     const serviceName = selectedOption.querySelector('.calc-option-title').innerText;
     // Usamos el objeto `selectedService` que ya tiene la información correcta
-    const serviceType = selectedService.type;
+    const serviceType = window.calculatorState.selectedService.type;
 
     const complexityText = document.getElementById('complexity').options[document.getElementById('complexity').selectedIndex].text;
     const extraSections = document.getElementById('extraSections').value;
@@ -349,7 +348,7 @@ window.sendCalculatedQuote = function() {
     }
 
     const selectedCategoryBtn = document.querySelector('.category-btn.selected');
-    const currentCategory = selectedCategoryBtn && selectedCategoryBtn.innerText.includes('Web') ? 'web' : 'other';
+    const currentCategory = window.calculatorState.selectedService.category;
     if (currentCategory === 'web') {
         const duration = document.getElementById('contractDuration').options[document.getElementById('contractDuration').selectedIndex].text;
         const hosting = document.getElementById('hostingPlan').options[document.getElementById('hostingPlan').selectedIndex].text;
