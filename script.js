@@ -85,15 +85,15 @@ function handleInitialScroll() {
     if (window.location.hash) {
         const hash = window.location.hash;
         const targetId = hash.startsWith('#') ? hash : '#' + hash;
-        
+
         // Wait for page to fully load and animations to stabilize
         setTimeout(() => {
             const targetElement = document.querySelector(targetId);
-            
+
             if (targetElement) {
                 const navHeight = document.querySelector('.navbar')?.offsetHeight || 0;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight - 30;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -159,7 +159,7 @@ function initAccordions() {
 function initCalculator() {
     const calculatorBox = document.querySelector('.calculator-box');
     if (!calculatorBox) return;
- 
+
     // --- ELEMENTS ---
     const categoryBtns = calculatorBox.querySelectorAll('.category-btn');
     const serviceOptions = calculatorBox.querySelectorAll('.calc-option');
@@ -174,7 +174,7 @@ function initCalculator() {
     const extrasRow = document.getElementById('extrasRow');
     const hostingPlanSelect = document.getElementById('hostingPlan');
     const domainPlanSelect = document.getElementById('domainPlan');
-    const contractDurationSelect = document.getElementById('contractDuration'); 
+    const contractDurationSelect = document.getElementById('contractDuration');
     const extraCheckboxes = document.querySelectorAll('.checkbox-item input'); // Puede ser null
 
     const complexityInfo = {
@@ -259,7 +259,7 @@ function initCalculator() {
                 hostingRow.style.display = (isWebCategory && !isCustomQuote) ? 'block' : 'none';
             }
             if (extrasRow) extrasRow.style.display = isCustomQuote ? 'none' : 'block';
-            
+
             if (sectionsRow) {
                 sectionsRow.style.display = (type === 'web_multi' && !isCustomQuote) ? 'block' : 'none';
                 if (type !== 'web_multi' && extraSectionsInput) extraSectionsInput.value = 0;
@@ -404,7 +404,7 @@ function initCalculator() {
     selectCategory('web', document.querySelector('.category-btn'));
 }
 
-window.sendCalculatedQuote = function() {
+window.sendCalculatedQuote = function () {
     const selectedOption = document.querySelector('.calc-option.selected');
     if (!selectedOption || !window.calculatorState || !window.calculatorState.selectedService.name) return alert('Por favor, seleccioná un servicio primero.');
 
@@ -450,7 +450,7 @@ window.sendCalculatedQuote = function() {
         if (document.getElementById('hostingPlan').value != 0) message += `🔹 Hosting: ${hosting}%0A`;
         if (document.getElementById('domainPlan').value != 0) message += `🔹 Dominio: ${domain}%0A`;
         if (document.getElementById('hostingPlan').value != 0 || document.getElementById('domainPlan').value != 0) {
-             message += `🔹 Contrato: ${duration}%0A`;
+            message += `🔹 Contrato: ${duration}%0A`;
         }
     }
 
@@ -1199,7 +1199,7 @@ function initExpandingCards() {
         const cards = container.querySelectorAll('.expanding-card');
 
         // --- Lógica para Desktop (Hover) ---
-        
+
         // Al entrar el mouse en una tarjeta específica
         cards.forEach(card => {
             card.addEventListener('mouseenter', () => {
@@ -1212,7 +1212,7 @@ function initExpandingCards() {
 
         // Al salir el mouse de TODO el contenedor, reseteamos todo
         container.addEventListener('mouseleave', () => {
-             cards.forEach(c => c.classList.remove('active'));
+            cards.forEach(c => c.classList.remove('active'));
         });
 
 
@@ -1222,12 +1222,12 @@ function initExpandingCards() {
             card.addEventListener('click', (e) => {
                 // Si hacemos clic en un botón/enlace dentro de la card, no queremos cerrar la card inmediatamente.
                 if (e.target.closest('a') || e.target.closest('button')) {
-                    return; 
+                    return;
                 }
 
                 // Si la tarjeta ya está activa, la cerramos al hacer click de nuevo
                 if (card.classList.contains('active')) {
-                     card.classList.remove('active');
+                    card.classList.remove('active');
                 } else {
                     // Si no, cerramos las demás y abrimos esta
                     cards.forEach(c => c.classList.remove('active'));
@@ -1237,3 +1237,127 @@ function initExpandingCards() {
         });
     });
 }
+
+// ===== 3D CIRCULAR GALLERY (FROM SCRATCH - INFINITE DELTA VERSION) =====
+function initCircularGallery() {
+    const pivot = document.getElementById('gallery-pivot');
+    const cards = document.querySelectorAll('.gallery-card');
+    const section = document.querySelector('.circular-gallery-section');
+    if (!pivot || cards.length === 0 || !section) return;
+
+    const totalItems = cards.length;
+    const anglePerItem = 360 / totalItems;
+
+    // Rotation state
+    let targetRotation = 0;
+    let currentRotation = 0;
+    const lerpFactor = 0.05; // Suavizado de la rotación
+
+    // Posicionamiento inicial
+    function layoutCards() {
+        const radius = window.innerWidth < 768 ? 500 : 900;
+        cards.forEach((card, i) => {
+            const theta = i * anglePerItem;
+            card.style.transform = `rotateY(${theta}deg) translateZ(${radius}px)`;
+        });
+    }
+    layoutCards();
+
+    // Loop de animación para suavizar (Lerp)
+    function animate() {
+        // Acercamos el valor actual al objetivo suavemente
+        currentRotation += (targetRotation - currentRotation) * lerpFactor;
+
+        // Aplicamos la rotación al pivot
+        pivot.style.transform = `rotateY(${-currentRotation}deg)`;
+
+        // Actualizamos opacidad y escala basándonos en la rotación actual
+        cards.forEach((card, i) => {
+            const theta = i * anglePerItem;
+            const rot = currentRotation % 360;
+            const relativeAngle = (theta - rot + 360) % 360;
+            const normalizedAngle = Math.abs(relativeAngle > 180 ? 360 - relativeAngle : relativeAngle);
+
+            const opacity = Math.max(0.1, 1 - (normalizedAngle / 90));
+            card.style.opacity = opacity;
+
+            const scale = 0.8 + (opacity * 0.2);
+            const inner = card.querySelector('.gallery-card-inner');
+            if (inner) inner.style.transform = `scale(${scale})`;
+
+            // Optimización: Ocultar cards totalmente invisibles
+            card.style.visibility = opacity <= 0.11 ? 'hidden' : 'visible';
+            card.style.pointerEvents = opacity < 0.3 ? 'none' : 'auto';
+        });
+
+        requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Evento Wheel (Mouse)
+    section.addEventListener('wheel', (e) => {
+        // Solo capturamos el evento si estamos sobre la sección de la galería
+        e.preventDefault();
+        targetRotation += e.deltaY * 0.15; // Reducido de 0.5 a 0.15 para que gire más despacio
+    }, { passive: false });
+
+    // Eventos Touch (Mobile)
+    let touchStartY = 0;
+    section.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    section.addEventListener('touchmove', (e) => {
+        const touchY = e.touches[0].clientY;
+        const deltaY = (touchStartY - touchY) * 2.5;
+        targetRotation += deltaY;
+        touchStartY = touchY;
+
+        if (e.cancelable) e.preventDefault();
+    }, { passive: false });
+
+    // --- Lógica del Modal ---
+    const modal = document.getElementById('gallery-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalClose = document.getElementById('modal-close');
+    const modalOverlay = modal ? modal.querySelector('.modal-overlay') : null;
+
+    function openModal(card) {
+        if (!modal) return;
+        const img = card.querySelector('img');
+        const title = card.getAttribute('data-title') || "Proyecto Vertex";
+        const desc = card.getAttribute('data-desc') || "Descripción detallada del trabajo realizado por Pelados Labs.";
+
+        modalImg.src = img.src;
+        modalTitle.textContent = title;
+        modalDesc.textContent = desc;
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+    }
+
+    function closeModal() {
+        if (!modal) return;
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => openModal(card));
+        card.style.cursor = 'pointer';
+    });
+
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
+
+    // Manejar redimensionamiento
+    window.addEventListener('resize', layoutCards);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initCircularGallery();
+    initExpandingCards();
+    if (typeof AOS !== 'undefined') AOS.init();
+});

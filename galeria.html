@@ -4,90 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería | VertexVisual</title>
-    <meta name="description" content="Galería de trabajos: edición de fotos, videos, diseño gráfico y redes sociales.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Galaría 3D Circular | VertexVisual</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <style>
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: var(--space-lg);
-        }
-        .gallery-item {
-            position: relative;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            cursor: pointer;
-            box-shadow: var(--shadow-sm);
-            transition: transform var(--transition-base);
-            background: var(--bg-tertiary);
-            aspect-ratio: 16/9;
-        }
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-        .gallery-overlay i {
-            color: white;
-            font-size: 2rem;
-        }
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            inset: 0;
-            background: rgba(0,0,0,0.9);
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-        .lightbox.active {
-            display: flex;
-        }
-        .lightbox-content {
-            max-width: 90%;
-            max-height: 90vh;
-            border-radius: var(--radius-sm);
-        }
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <!-- Navigation -->
+    <!-- Navigation (Keeping for Project Consistency) -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
@@ -96,248 +19,117 @@
             </a>
             <div class="nav-menu">
                 <a href="index.html" class="nav-link">Inicio</a>
-                <a href="about.html" class="nav-link active">Nosotros</a>
+                <a href="about.html" class="nav-link">Nosotros</a>
                 <a href="servicios.html" class="nav-link">Servicios</a>
                 <a href="contacto.html" class="nav-link">Contacto</a>
-                <div class="nav-cta">
-                    <a href="javascript:void(0)" onclick="openCalendly()" class="btn btn-primary btn-sm">
-                        <i class="fa-regular fa-calendar"></i> Agendar
-                    </a>
-                </div>
             </div>
-            <div class="nav-toggle"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero" style="min-height: 50vh;">
-        <div class="hero-content" data-aos="fade-up">
-            <div class="hero-badge">
-                <i class="fa-solid fa-images"></i>
-                <span>Galería</span>
-            </div>
-            <h1 class="hero-title">Nuestra <span>Galería</span></h1>
-            <p class="hero-subtitle">Explorá nuestros trabajos en detalle</p>
-        </div>
-    </section>
-
-    <!-- Filter -->
-    <section id="filter" style="padding-top: 0;">
-        <div class="container">
-            <div class="btn-group" style="justify-content: center; flex-wrap: wrap;" data-aos="fade-up">
-                <button class="btn btn-primary btn-sm" onclick="filterGallery('all', this)">Todos</button>
-                <button class="btn btn-outline btn-sm" onclick="filterGallery('foto', this)">Fotos</button>
-                <button class="btn btn-outline btn-sm" onclick="filterGallery('video', this)">Videos</button>
-                <button class="btn btn-outline btn-sm" onclick="filterGallery('redes', this)">Redes Sociales</button>
-                <button class="btn btn-outline btn-sm" onclick="filterGallery('logo', this)">Diseño</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Grid -->
-    <section id="gallery">
-        <div class="container">
-            <div class="gallery-grid" id="gallery-container">
-                <!-- --- FOTOGRAFÍA --- -->
-                
-                <!-- Edición de Producto (2 ejemplos) -->
-                <div class="gallery-item" data-category="foto" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/edicion-producto-1.jpg" alt="Edición de Producto - Ejemplo 1">
-                    <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-                </div>
-                <div class="gallery-item" data-category="foto" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/edicion-producto-2.jpg" alt="Edición de Producto - Ejemplo 2">
-                    <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+    <!-- Main 3D Gallery Section -->
+    <main class="circular-gallery-main">
+        <section class="circular-gallery-section" id="gallery-trigger">
+            <div class="gallery-sticky-container">
+                <div class="gallery-title-layer">
+                    <h1>Nuestro Trabajo</h1>
+                    <p>Scroll para rotar la galería 3D</p>
                 </div>
 
-                <!-- Corrección de Color (2 ejemplos) -->
-                <div class="gallery-item" data-category="foto" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/correccion-color-1.jpg" alt="Corrección de Color - Ejemplo 1">
-                    <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-                </div>
-                <div class="gallery-item" data-category="foto" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/correccion-color-2.jpg" alt="Corrección de Color - Ejemplo 2">
-                    <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-                </div>
-
-                <!-- --- VIDEO --- -->
-
-                <!-- Reels Promocionales (2 ejemplos) -->
-                <div class="gallery-item" data-category="video" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/reel-promocional-1.jpg" alt="Reel Promocional - Ejemplo 1">
-                    <div class="gallery-overlay"><i class="fa-solid fa-play"></i></div>
-                </div>
-                <div class="gallery-item" data-category="video" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/reel-promocional-2.jpg" alt="Reel Promocional - Ejemplo 2">
-                    <div class="gallery-overlay"><i class="fa-solid fa-play"></i></div>
-                </div>
-
-                <!-- Videos para YouTube (2 ejemplos) -->
-                <div class="gallery-item" data-category="video" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/video-youtube-1.jpg" alt="Video YouTube - Ejemplo 1">
-                    <div class="gallery-overlay"><i class="fa-solid fa-play"></i></div>
-                </div>
-                <div class="gallery-item" data-category="video" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/video-youtube-2.jpg" alt="Video YouTube - Ejemplo 2">
-                    <div class="gallery-overlay"><i class="fa-solid fa-play"></i></div>
-                </div>
-
-                <!-- --- REDES SOCIALES --- -->
-
-                <!-- Feed Instagram (2 ejemplos) -->
-                <div class="gallery-item" data-category="redes" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/feed-instagram-1.jpg" alt="Feed Instagram - Ejemplo 1">
-                    <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-                </div>
-                <div class="gallery-item" data-category="redes" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/feed-instagram-2.jpg" alt="Feed Instagram - Ejemplo 2">
-                    <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-                </div>
-
-                <!-- Carruseles Informativos (2 ejemplos) -->
-                <div class="gallery-item" data-category="redes" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/carrusel-1.jpg" alt="Carrusel Informativo - Ejemplo 1">
-                    <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-                </div>
-                <div class="gallery-item" data-category="redes" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/carrusel-2.jpg" alt="Carrusel Informativo - Ejemplo 2">
-                    <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-                </div>
-
-                <!-- --- DISEÑO (LOGOS, FLYERS, TARJETAS) --- -->
-
-                <!-- Diseño de Logos (2 ejemplos) -->
-                <div class="gallery-item" data-category="logo" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/logo-1.jpg" alt="Diseño de Logo - Ejemplo 1">
-                    <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-                </div>
-                <div class="gallery-item" data-category="logo" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/logo-2.jpg" alt="Diseño de Logo - Ejemplo 2">
-                    <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-                </div>
-
-                <!-- Flyers y Banners (2 ejemplos) -->
-                <div class="gallery-item" data-category="logo" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/flyer-1.jpg" alt="Flyer y Banner - Ejemplo 1">
-                    <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-                </div>
-                <div class="gallery-item" data-category="logo" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/flyer-2.jpg" alt="Flyer y Banner - Ejemplo 2">
-                    <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-                </div>
-
-                <!-- Tarjetas de Presentación (2 ejemplos) -->
-                <div class="gallery-item" data-category="logo" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/tarjeta-1.jpg" alt="Tarjeta de Presentación - Ejemplo 1">
-                    <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-                </div>
-                <div class="gallery-item" data-category="logo" onclick="openLightbox(this)">
-                    <img src="assets/images/galeria/tarjeta-2.jpg" alt="Tarjeta de Presentación - Ejemplo 2">
-                    <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="footer-brand-name"><i class="fa-solid fa-bolt"></i> <span>Pelados</span>Labs</div>
-                    <p class="footer-brand-text">Desarrollo web profesional orientado a resultados.</p>
-                    <div class="footer-social" style="margin-top: var(--space-lg);">
-                        <a href="#" target="_blank" class="footer-social-link"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://wa.me/5491130489378" target="_blank" class="footer-social-link"><i class="fa-brands fa-whatsapp"></i></a>
+                <div class="gallery-scene">
+                    <div class="gallery-pivot" id="gallery-pivot">
+                        <!-- 18 Cards -->
+                        <div class="gallery-card" data-title="Modern Architecture"
+                            data-desc="A stunning view of glass and steel in urban design.">
+                            <div class="gallery-card-inner"><img src="img/foto1.jpg" alt="Portfolio 1"></div>
+                        </div>
+                        <div class="gallery-card" data-title="Mountain Retreat"
+                            data-desc="Finding peace and silence in the snowy peaks.">
+                            <div class="gallery-card-inner"><img src="img/foto2.jpg" alt="Portfolio 2"></div>
+                        </div>
+                        <div class="gallery-card" data-title="Neon Nights"
+                            data-desc="The vibrant pulse of the city after sunset.">
+                            <div class="gallery-card-inner"><img src="img/foto3.jpg" alt="Portfolio 3"></div>
+                        </div>
+                        <div class="gallery-card" data-title="Minimalist Interior"
+                            data-desc="Beauty in simplicity and clean lines.">
+                            <div class="gallery-card-inner"><img src="img/foto4.jpg" alt="Portfolio 4"></div>
+                        </div>
+                        <div class="gallery-card">
+                            <div class="gallery-card-inner"><img src="img/foto5.jpg" alt="Portfolio 5"></div>
+                        </div>
+                        <div class="gallery-card">
+                            <div class="gallery-card-inner"><img src="img/foto6.jpg" alt="Portfolio 6"></div>
+                        </div>
+                        <div class="gallery-card">
+                            <div class="gallery-card-inner"><img src="img/foto7.jpg" alt="Portfolio 7"></div>
+                        </div>
+                        <div class="gallery-card">
+                            <div class="gallery-card-inner"><img src="img/foto8.jpg" alt="Portfolio 8"></div>
+                        </div>
+                        <div class="gallery-card">
+                            <div class="gallery-card-inner"><img src="img/foto9.jpg" alt="Portfolio 9"></div>
+                        </div>
+                        <div class="gallery-card">
+                            <div class="gallery-card-inner"><img src="img/foto10.jpg" alt="Portfolio 10"></div>
+                        </div>
+                        <div class="gallery-card">
+                            <div class="gallery-card-inner"><img src="img/foto11.jpg" alt="Portfolio 11"></div>
+                        </div>
+                        <div class="gallery-card">
+                            <div class="gallery-card-inner"><img src="img/foto12.jpg" alt="Portfolio 12"></div>
+                        </div>
+                        <div class="gallery-card">
+                            <div class="gallery-card-inner"><img src="img/foto13.jpg" alt="Portfolio 13"></div>
+                        </div>
+                        <div class="gallery-card">
+                            <div class="gallery-card-inner"><img src="img/foto14.jpg" alt="Portfolio 14"></div>
+                        </div>
+                        <div class="gallery-card">
+                            <div class="gallery-card-inner"><img src="img/foto15.jpg" alt="Portfolio 15"></div>
+                        </div>
+                        <div class="gallery-card">
+                            <div class="gallery-card-inner"><img src="img/foto16.jpg" alt="Portfolio 16"></div>
+                        </div>
+                        <div class="gallery-card">
+                            <div class="gallery-card-inner"><img src="img/foto17.jpg" alt="Portfolio 17"></div>
+                        </div>
+                        <div class="gallery-card">
+                            <div class="gallery-card-inner"><img src="img/foto18.jpg" alt="Portfolio 18"></div>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <h4 class="footer-title">Navegación</h4>
-                    <div class="footer-links">
-                        <a href="index.html" class="footer-link">Inicio</a>
-                        <a href="about.html" class="footer-link">Nosotros</a>
-                        <a href="servicios.html" class="footer-link">Servicios</a>
-                        <a href="contacto.html" class="footer-link">Contacto</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="footer-title">Recursos</h4>
-                    <div class="footer-links">
-                        <a href="galeria.html" class="footer-link">Galería</a>
-                        <a href="faq.html" class="footer-link">Preguntas Frecuentes</a>
-                        <a href="testimonios.html" class="footer-link">Testimonios</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="footer-title">Contacto</h4>
-                    <div class="footer-links">
-                        <a href="mailto:peladoslabs@gmail.com" class="footer-link"><i class="fa-regular fa-envelope"></i> peladoslabs@gmail.com</a>
-                        <a href="https://wa.me/5491130489378" class="footer-link"><i class="fa-brands fa-whatsapp"></i> +54 9 11 3048 9378</a>
-                        <span class="footer-link" style="cursor: default;"><i class="fa-solid fa-globe"></i> Argentina (GMT-3)</span>
-                    </div>
+
+                <div class="scroll-instruction">
+                    <div class="mouse"></div>
+                    <span>Scroll</span>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p class="footer-copyright">© 2025 Pelados Labs. Todos los derechos reservados.</p>
-                <div class="footer-legal"><a href="#">Privacidad</a><a href="#">Términos</a></div>
-            </div>
-        </div>
-    </footer>
-    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar modo oscuro/claro">
+        </section>
+    </main>
+
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema">
         <i class="fa-solid fa-moon"></i>
     </button>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Gallery Detail Modal -->
+    <div class="gallery-modal" id="gallery-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img src="" alt="" id="modal-img">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-title">Project Title</h2>
+                    <p id="modal-desc">Detailed description of the project goes here. Explaining the creative process
+                        and results.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
-    <script>
-        function filterGallery(category, btn) {
-            const items = document.querySelectorAll('.gallery-item');
-            const buttons = document.querySelectorAll('#filter .btn');
-
-            if(btn) {
-                buttons.forEach(b => {
-                    b.classList.remove('btn-primary');
-                    b.classList.add('btn-outline');
-                });
-                btn.classList.remove('btn-outline');
-                btn.classList.add('btn-primary');
-            }
-
-            items.forEach(item => {
-                if (category === 'all' || item.dataset.category === category) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-
-        function openLightbox(item) {
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
-            img.src = item.querySelector('img').src;
-            lightbox.classList.add('active');
-        }
-
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const category = urlParams.get('category');
-            if (category) {
-                const btn = document.querySelector(`button[onclick*="'${category}'"]`);
-                if(btn) filterGallery(category, btn);
-            }
-            AOS.init();
-        });
-    </script>
 </body>
+
 </html>
