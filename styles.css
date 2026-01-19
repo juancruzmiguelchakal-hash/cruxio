@@ -1,12 +1,7 @@
-/* ============================================
-   Cruxio - DESIGN SYSTEM
-   ============================================ */
-
-/* --- CUSTOM PROPERTIES (VARIABLES) --- */
+/* --- VARIABLES --- */
 :root {
-    /* Colors - Cruxio Theme (Light/Teal) */
+    /* Colores - Tomix Visuals Theme (Light/Teal) */
     --bg-primary: #F0F4F8;
-    /* Slightly darker for contrast */
     --bg-secondary: #FFFFFF;
     --bg-tertiary: #F1F5F9;
     --accent: #00897B;
@@ -38,7 +33,7 @@
     --space-4xl: 6rem;
 
     /* Typography */
-    --font-primary: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-primary: 'ModernSans', sans-serif;
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
     --font-size-base: 1rem;
@@ -286,7 +281,8 @@ h6 {
 }
 
 .logo {
-    font-family: CarosMedium;
+    font-family: Skeina;
+    letter-spacing: 2px;
 }
 
 .section-header {
@@ -1262,10 +1258,19 @@ h6 {
 }
 
 @font-face {
-    font-family: CarosMedium;
-    src: url(/assets/fonts/Caros_Medium.otf);
+    font-family: Skeina;
+    src: url(/assets/fonts/Skeina.otf);
 }
 
+@font-face {
+    font-family: ChampagneLimousines;
+    src: url(/assets/fonts/ChampagneLimousines.ttf);
+}
+
+@font-face {
+    font-family: ModernSans;
+    src: url(/assets/fonts/ModernSans-Light.otf);
+}
 
 /* --- ANIMATIONS --- */
 @keyframes fadeIn {
