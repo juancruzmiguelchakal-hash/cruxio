@@ -185,20 +185,10 @@ section {
     padding: 0 var(--space-md);
 }
 
-.nav-logo {
-    font-size: var(--font-size-xl);
-    font-weight: 700;
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-}
 
-.nav-logo span {
-    background: var(--gradient-accent);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.nav-logo-img {
+    width: 70px;
+    transition: all 0.3s ease;
 }
 
 .nav-menu {
@@ -2970,178 +2960,175 @@ body.dark-mode .theme-toggle-btn i {
 
 /* Contenedor Grid para las tarjetas (Reemplaza al flex container anterior) */
 .team-grid {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 40px;
     padding: 20px 0;
     justify-items: center;
     /* Centrar tarjetas */
 }
 
 /* LA TARJETA PRINCIPAL */
-.profile-card {
-    position: relative;
-    width: 100%;
-    height: 560px;
-    /* Altura fija importante para la animación */
-    background-color: #1c1c1e;
-    /* Fondo oscuro casi negro (Referencia) */
-    border-radius: 40px;
-    /* Bordes muy redondeados (Referencia) */
-    padding: 12px;
-    /* Espacio entre el borde de la tarjeta y la imagen interna */
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    border: 1px solid #333;
-    /* Borde sutil oscuro */
+.perfil-tarjeta {
+  width: 280px; 
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Sombra suave */
-.profile-card:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    transform: translateY(-5px);
+.perfil-tarjeta:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(110, 69, 224, 0.2);
+  border-color: rgba(110, 69, 224, 0.3);
 }
 
-/* IMAGEN (El cuadro superior) */
-.profile-img {
-    width: 100%;
-    height: 340px;
-    /* Altura inicial de la imagen */
-    background-size: cover;
-    background-position: center;
-    border-radius: 30px;
-    /* Radio interno */
-    transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
-    /* Animación fluida */
-    position: relative;
-    z-index: 0;
+.tarjeta-header {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* HOVER: La imagen crece para llenar todo */
-.profile-card:hover .profile-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 40px;
-    /* Hereda el radio del padre */
-    margin: 0;
-    z-index: 0;
+.tarjeta-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
 }
 
-/* Overlay degradado (Solo visible en Hover para leer texto) */
-.profile-img::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.4s ease 0.1s;
-    border-radius: inherit;
+.perfil-tarjeta:hover .tarjeta-header img {
+  transform: scale(1.05);
 }
 
-.profile-card:hover .profile-img::after {
-    opacity: 1;
+.tarjeta-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(transparent, var(--card-bg));
 }
 
-/* CONTENIDO DE TEXTO */
-.profile-content {
-    padding: 20px 10px 10px 10px;
-    color: white;
-    position: relative;
-    z-index: 1;
-    /* Encima de la imagen expandida */
-    margin-top: auto;
-    /* Empuja el contenido abajo en estado normal */
-    transition: transform 0.5s ease;
+.tarjeta-body {
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
 }
 
-/* Ajuste de posición del texto al hacer hover */
-.profile-card:hover .profile-content {
-    transform: translateY(-10px);
-    /* Sube un poco */
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--card-bg);
+  object-fit: cover;
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: all 0.3s;
 }
 
-/* Título / Nombre */
-.profile-name {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #fff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    /* Sombra para legibilidad */
+.perfil-tarjeta:hover .avatar {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--card-bg), 0 0 20px rgba(110, 69, 224, 0.5);
 }
 
-/* Badge de verificado (Verde) */
-.verified-badge {
-    color: #00E676;
-    /* Verde brillante */
-    font-size: 1.2rem;
+.role {
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+  position: relative;
 }
 
-/* Rol / Descripción */
-.profile-role {
-    font-size: 0.95rem;
-    color: #9e9e9e;
-    /* Gris claro */
-    line-height: 1.4;
-    margin-bottom: 25px;
-    transition: color 0.3s;
+.role::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s;
 }
 
-.profile-card:hover .profile-role {
-    color: #e0e0e0;
-    /* Se aclara en hover */
+.perfil-tarjeta:hover .role::after {
+  width: 50px;
 }
 
-/* FOOTER DE LA TARJETA (Estadísticas y Botón) */
-.profile-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.bio {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  min-height: 60px;
 }
 
-.profile-stats {
-    display: flex;
-    gap: 15px;
-    font-size: 0.9rem;
-    color: #fff;
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.profile-stats span {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: 500;
+.skill {
+  background: rgba(110, 69, 224, 0.1);
+  color: var(--accent);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s;
 }
 
-.profile-stats i {
-    color: #bdbdbd;
+.perfil-tarjeta:hover .skill {
+  background: rgba(110, 69, 224, 0.2);
 }
 
-/* BOTÓN DE ACCIÓN */
-.profile-btn {
-    padding: 10px 24px;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    cursor: pointer;
-    border: none;
+.redes-sociales {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
 
-    /* Estado Hover: Blanco (Referencia imagen derecha) */
-    .profile-card:hover .profile-btn {
-        background-color: white;
-        color: black;
-        transform: scale(1.05);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
+.red-social {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.red-social:hover {
+  color: white;
+  background: var(--accent);
+  transform: translateY(-3px);
+}
+
+.perfil-tarjeta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="1" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.05"/></svg>');
+  pointer-events: none;
+  z-index: 3;
+  mix-blend-mode: overlay;
 }
 
 /* ============================================
